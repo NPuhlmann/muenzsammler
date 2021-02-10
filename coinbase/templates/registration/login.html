@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="w3-container">
     <div class="w3-display-container" style="margin-top: 64px; height: 300px">
@@ -8,7 +10,8 @@
         <div class="w3-display-middle w3-margin-top">
             <form method="post">
                 {% csrf_token %}
-                {{ form.non_field_errors }}
+                {{ form|crispy}}
+                <!-- {{ form.non_field_errors }}
                 <div class="fieldWrapper">
                     {{ form.username.errors }}
                     <label for="{{ id_username }}">Email:</label>
@@ -20,7 +23,7 @@
                     <label for="{{ id_password }}">Password:</label>
                     <input class="w3-input" id="id_password" name="password" type="password" class="form-control">
                 </div>
-                <p></p>
+                <p></p> -->
                 <button class="w3-margin-top w3-right" type="submit">Login</button>
             </form>
         </div>

@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="w3-container">
-    <div class="w3-display-container" style="margin-top: 64px; height: 300px">
+    <div class="w3-display-container" style="margin-top: 64px; height: 400px">
         <div class="w3-display-topmiddle">
             <h2>Register</h2>
         </div>
         <div class="w3-display-middle w3-margin-top">
             <form method="post">
                 {% csrf_token %}
-                {{ form.non_field_errors }}
-                {{form}}
+                {{ form|crispy }}
                 <button class="w3-margin-top w3-right" type="submit">Register</button>
             </form>
         </div>
