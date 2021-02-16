@@ -5,6 +5,7 @@
     <div class="w3-display-container ">
         <div class="w3-cell-row w3-center">
             <h1 class="w3-cell"> {{imagecoin.name}} </h1>
+            <a href="{% url 'coins:coin_delete' imagecoin.coin.pk %}"><i class="fa fa-trash w3-right"></i></a>
         </div>
 
         <hr class="w3-margin-top">

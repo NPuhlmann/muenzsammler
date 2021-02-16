@@ -1,6 +1,5 @@
-from django.views.generic.detail import DetailView
 from coin.models import Coin
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView, DeleteView
 from .models import ImageCoin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import reverse
@@ -55,3 +54,10 @@ class CoinCreateView(LoginRequiredMixin, CreateView):
                           user=self.request.user, coin=coin, image='coins/sentence.png')
         image.save()
         return super(CoinCreateView, self).form_valid(form)
+
+
+class CoinDeleteView(LoginRequiredMixin, DeleteView):
+    model = Coin
+
+    def get_success_url(self):
+        return reverse('coins:imagecoin_list')

@@ -22,7 +22,7 @@ class Coin(models.Model):
         ('br', 'Bronze'),
     ]
 
-    name = CharField(max_length=200, unique=True, blank=True)
+    name = CharField(max_length=200, unique=False, blank=True)
     material = CharField(max_length=2, choices=MATERIAL_CHOICES, default='go')
     year = IntegerField()
     reihe = ForeignKey(SammlerReihe, on_delete=models.CASCADE)
