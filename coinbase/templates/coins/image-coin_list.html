@@ -10,20 +10,25 @@
         </div>
 
         <hr class="w3-margin-top">
-
-
-        <ul>
+        <div class="w3-row-padding">
             {% for imagecoin in object_list %}
-            <li><img src="{{ imagecoin.image.url }}"></li>
-
-            <a href="{% url 'coins:imagecoin_detail' imagecoin.pk %}">
-                <li>{{ imagecoin.coin.name }}</li>
-            </a>
-
+            <div class='w3-third'>
+                <div class="w3-panel w3-card-4">
+                    <img src="{{ imagecoin.image.url }}" alt="Coin" style="width:100%">
+                    <div class="w3-container w3-center">
+                        <a href="{% url 'coins:imagecoin_detail' imagecoin.pk %}">
+                            <p>{{ imagecoin.coin.name }}</p>
+                        </a>
+                    </div>
+                    <div class='w3-container w3-right'>
+                        <a href="{% url 'coins:coin_delete' imagecoin.coin.pk %}"><i class="fa fa-trash"></i></a>
+                    </div>
+                </div>
+            </div>
             {% empty %}
             <li>No articles yet.</li>
             {% endfor %}
-        </ul>
+        </div>
     </div>
 </div>
 
