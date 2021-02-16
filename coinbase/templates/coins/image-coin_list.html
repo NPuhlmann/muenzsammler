@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='w3-container' style="margin-top: 64px">
+    <div class="w3-display-container ">
+        <div class="w3-cell-row">
+            <h1 class="w3-cell"> COINS </h1>
+            <a href="{% url 'coins:imagecoin_create' %}" class="w3-cell w3-right">
+                <p>Add a new one</p>
+            </a>
+        </div>
+
+        <hr class="w3-margin-top">
+
+
+        <ul>
+            {% for imagecoin in object_list %}
+            <li><img src="{{ imagecoin.image.url }}"></li>
+
+            <a href="{% url 'coins:imagecoin_detail' imagecoin.pk %}">
+                <li>{{ imagecoin.coin.name }}</li>
+            </a>
+
+            {% empty %}
+            <li>No articles yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

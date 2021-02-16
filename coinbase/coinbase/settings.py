@@ -128,14 +128,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# URLs
 STATIC_URL = '/static/'
-
+MEDIA_URL = '/media/'
+LOGIN_REDIRECT_URL = '/coins/'
+LOGIN_URL = '/user/login'
 
 AUTH_USER_MODEL = 'user.User'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = '/coins/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -47,13 +47,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = 'email'
 
     def __str__(self):
-        return self.get_full_name()
+        return self.email
 
-    def get_full_name(self):
-        '''
-        Returns the first_name plus the last_name, with a space in between.
-        '''
-        return self.first_name + " " + self.last_name
+    # Not used for now.
+    # def get_full_name(self):
+    #     '''
+    #     Returns the first_name plus the last_name, with a space in between.
+    #     '''
+    #     return self.first_name + " " + self.last_name
 
     @property
     def is_staff(self):

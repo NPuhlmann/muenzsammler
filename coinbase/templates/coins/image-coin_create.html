@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+    <div class="w3-container">
+        <div class="w3-display-container" style="margin-top: 64px; height: 400px">
+            <div class="w3-display-topmiddle">
+                <h2>Add a new Coin</h2>
+            </div>
+            <div class="w3-display-middle w3-margin-top">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="w3-margin-top w3-right" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
